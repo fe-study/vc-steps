@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+<title>demo - vc-steps</title>
+<style>
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        background: rgba(119, 129, 149, 0.8);
+    }
+    .container label {
+        font-weight: normal;
+    }
+</style>
+</head>
+<body>
+    <h1 align="center">@Vue Component - vc-steps</h1>
+    <div class="text-center">简单的步骤组件，用于指明当前操作的进程，给用户一个明确的预期,可以预设全部步骤做补充~</div>
+    <a style="display: block" class="text-center" href="https://github.com/iwaimai-bi-fe/vc-steps">view on Github</a>
+    <hr>
+
+    <div id="app" class="container">
+
+        <vc-steps
+            :show.sync="show"
+            :steps="steps"
+            :all-steps="allSteps"
+            :title="title"
+            :sub-title="subTitle"
+            :closeable="closeable"
+        >
+        </vc-steps>
+
+        <hr>
+
+        <pre>用户传入的steps: {{ steps | json }}</pre>
+
+        <div class="form-group">
+            <div>show - (默认: true)</div>
+            <label><input type="radio" :value="bools.true" name="show" v-model="show">是</label>
+            <label><input type="radio" :value="bools.false" name="show" v-model="show">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>closeable - (默认: true)</div>
+            <label><input type="radio" :value="bools.true" name="closeable" v-model="closeable">是</label>
+            <label><input type="radio" :value="bools.false" name="closeable" v-model="closeable">否</label>
+        </div>
+
+    </div>
+
+    <script src='../dist/example.js'></script>
+</body>
+</html>
